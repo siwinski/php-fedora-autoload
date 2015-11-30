@@ -1,0 +1,51 @@
+{
+    "name": "fedora/autoload",
+    "description": "",
+    "keywords": [
+        "fedora",
+        "autoload",
+        "symfony",
+        "zend"
+    ],
+    "homepage": "https://github.com/xxxxx/xxxxx",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shawn Iwinski",
+            "email": "shawn@iwin.ski"
+        }
+    ],
+    "provides": {
+        "fedora/autoload-common": "self.version",
+        "fedora/autoload-symfony": "self.version",
+        "fedora/autoload-zend": "self.version"
+    },
+    "require": {
+        "php": ">= 5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "fabpot/php-cs-fixer": "*",
+        "phpunit/phpunit": "^4.8",
+        "symfony/class-loader": "^2.3",
+        "zendframework/zend-loader": "^2.4"
+    },
+    "suggest": {
+        "symfony/class-loader": "For using \\Fedora\\Autoload\\Symfony",
+        "zendframework/zend-loader": "For using \\Fedora\\Autoload\\Zend"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fedora\\Autoload\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fedora\\Autoload\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "cs": "php-cs-fixer fix . || [ $? = 1 ]",
+        "tests": "phpunit"
+    }
+}
