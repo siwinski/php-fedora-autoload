@@ -13,16 +13,23 @@ final class Common
 {
     const LIB_DIR = '/usr/share/php';
 
-    public static function libPsr0ClassRequire($psr0Class, $once = true)
+    public static function prefixPsr0ClassRequire($psr0Class, $prefix = self::LIB_DIR, $once = true)
     {
         if (!class_exists($psr0Class, false)) {
-            $file = str_replace('\\', '/', $psr0Class).'.php';
+            self::prefixRequire(
+                str_replace('\\', '/', $psr0Class).'.php',
+                $prefix,
+                $once
+            );
+        }
+    }
 
-            if ($once) {
-                require_once self::LIB_DIR.'/'.$file;
-            } else {
-                require self::LIB_DIR.'/'.$file;
-            }
+    public static function prefixRequire($file, $prefix = self::LIB_DIR, $once = true)
+    {
+        if ($once) {
+            require_once $prefix.'/'.$file;
+        } else {
+            require $prefix.'/'.$file;
         }
     }
 }

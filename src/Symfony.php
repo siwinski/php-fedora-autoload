@@ -30,11 +30,11 @@ final class Symfony
         if (!isset(static::$instances[$type])) {
             switch ($type) {
                 case self::PSR0:
-                    Common::libPsr0ClassRequire('Symfony\\Component\\ClassLoader\\ClassLoader');
+                    Common::prefixPsr0ClassRequire('Symfony\\Component\\ClassLoader\\ClassLoader');
                     static::$instances[$type] = new ClassLoader();
                     break;
                 case self::PSR4:
-                    Common::libPsr0ClassRequire('Symfony\\Component\\ClassLoader\\Psr4ClassLoader');
+                    Common::prefixPsr0ClassRequire('Symfony\\Component\\ClassLoader\\Psr4ClassLoader');
                     static::$instances[$type] = new Psr4ClassLoader();
                     break;
                 default:

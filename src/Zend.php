@@ -10,7 +10,7 @@
 namespace Fedora\Autoload;
 
 require_once __DIR__.'/Common.php';
-Common::libPsr0ClassRequire('Zend\\Loader\\AutoloaderFactory');
+Common::prefixPsr0ClassRequire('Zend\\Loader\\AutoloaderFactory');
 use Zend\Loader\AutoloaderFactory;
 
 final class Zend
