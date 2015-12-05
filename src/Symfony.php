@@ -19,9 +19,9 @@ final class Symfony
     const PSR0 = 'psr0';
     const PSR4 = 'psr4';
 
-    protected static $instances = array();
+    private static $instances = array();
 
-    protected function __construct()
+    private function __construct()
     {
     }
 

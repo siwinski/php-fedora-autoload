@@ -15,7 +15,7 @@ use Zend\Loader\AutoloaderFactory;
 
 final class Zend
 {
-    protected function __construct()
+    private function __construct()
     {
     }
 
