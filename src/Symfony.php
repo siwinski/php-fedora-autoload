@@ -9,10 +9,11 @@
  */
 namespace Fedora\Autoload;
 
-require_once __DIR__.'/Common.php';
-
+use Fedora\Autoload\Common;
 use Symfony\Component\ClassLoader\ClassLoader;
 use Symfony\Component\ClassLoader\Psr4ClassLoader;
+
+require_once __DIR__.'/Common.php';
 
 final class Symfony
 {
