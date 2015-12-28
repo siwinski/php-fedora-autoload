@@ -32,4 +32,13 @@ final class Common
             require $prefix.'/'.$file;
         }
     }
+
+    public static function prefixInclude($file, $prefix = self::LIB_DIR, $once = true)
+    {
+        if ($once) {
+            @include_once $prefix.'/'.$file;
+        } else {
+            @include $prefix.'/'.$file;
+        }
+    }
 }
