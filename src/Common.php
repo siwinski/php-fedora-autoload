@@ -27,18 +27,18 @@ final class Common
     public static function prefixRequire($file, $prefix = self::LIB_DIR, $once = true)
     {
         if ($once) {
-            require_once $prefix.'/'.$file;
+            return require_once $prefix.'/'.$file;
         } else {
-            require $prefix.'/'.$file;
+            return require $prefix.'/'.$file;
         }
     }
 
     public static function prefixInclude($file, $prefix = self::LIB_DIR, $once = true)
     {
         if ($once) {
-            @include_once $prefix.'/'.$file;
+            return @include_once $prefix.'/'.$file;
         } else {
-            @include $prefix.'/'.$file;
+            return @include $prefix.'/'.$file;
         }
     }
 }
