@@ -40,7 +40,7 @@ Group:         Development/Libraries
 License:       MIT
 URL:           https://github.com/%{github_owner}/%{github_name}
 #Source0:       %%{url}/archive/%%{github_commit}/%%{name}-%%{github_version}-%%{github_commit}.tar.gz
-Source0:       php-fedora-autoload.tar.gz
+Source0:       %{name}-%{github_version}.tar.gz
 
 BuildArch:     noarch
 # Tests
