@@ -7,9 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Fedora\Autoload;
 
-use Fedora\Autoload\Common;
 use Zend\Loader\AutoloaderFactory;
 
 require_once __DIR__.'/Common.php';
