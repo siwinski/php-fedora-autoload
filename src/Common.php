@@ -42,4 +42,18 @@ final class Common
             return @include $prefix.'/'.$file;
         }
     }
+
+    public static function requiredDependencies($dependencies, $prefix = self::LIB_DIR)
+    {
+        foreach ((array) $dependencies as $dependency) {
+            self::prefixRequire($dependency, $prefix);
+        }
+    }
+
+    public static function optionalDependencies($dependencies, $prefix = self::LIB_DIR)
+    {
+        foreach ((array) $dependencies as $dependency) {
+            self::prefixInclude($dependency, $prefix);
+        }
+    }
 }
