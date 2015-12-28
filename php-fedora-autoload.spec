@@ -152,7 +152,7 @@ cat <<'BOOTSTRAP' | tee bootstrap.php
 
 require_once '%{buildroot}%{phpdir}/Fedora/Autoload/Symfony.php';
 \Fedora\Autoload\Symfony::getInstance()
-    ->addPrefix('Fedora\\', '%{buildroot}%{phpdir}');
+    ->addPrefix('Fedora\\Autoload\\', '%{buildroot}%{phpdir}');
 AUTOLOAD
 
 %{_bindir}/phpunit --verbose
