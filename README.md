@@ -2,6 +2,7 @@
 
 Standardized, simplified, and singleton autoloaders
 
+## Autoloaders
 
 ### Symfony
 
@@ -96,4 +97,46 @@ require_once '%{_datadir}/php/Fedora/Autoload/Zend.php';
 // Another library (i.e. dependency)
 require_once '%{_datadir}/php/Foo/Baz/autoload.php';
 AUTOLOAD
+```
+
+## Dependencies
+
+### Before
+
+```php
+// Required dependencies
+require_once '%{_datadir}/php/Foo1/autoload.php';
+require_once '%{_datadir}/php/Foo2/autoload.php';
+
+// Optional dependencies #1
+@include_once '%{_datadir}/php/Bar1/autoload.php';
+
+// Optional dependencies #2
+foreach (array(
+    '%{_datadir}/php/Baz1/autoload.php',
+    '%{_datadir}/php/Baz2/autoload.php',
+) as $optionalDependency) {
+    if (file_exists($optionalDependency)) {
+        require_once $optionalDependency;
+    }
+}
+```
+
+### After
+
+```php
+// Required dependencies
+\Fedora\Autoload\Common::requiredDependencies(array(
+    'Foo1/autoload.php',
+    'Foo2/autoload.php',
+));
+
+// Optional dependencies #1
+\Fedora\Autoload\Common::optionalDependencies('Bar1/autoload.php');
+
+// Optional dependencies #2
+\Fedora\Autoload\Common::optionalDependencies(array(
+    'Baz1/autoload.php',
+    'Baz2/autoload.php',
+));
 ```
