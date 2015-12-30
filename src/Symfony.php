@@ -48,3 +48,9 @@ final class Symfony
         return static::$instances[$type];
     }
 }
+
+if (!Common::isFedoraNamespaceRegistered()) {
+    Symfony::getInstance()->addPrefix('Fedora\\Autoload\\', dirname(dirname(__DIR__)));
+    Symfony::getInstance()->addPrefix('Fedora\\', Common::LIB_DIR);
+    Common::setFedoraNamespaceRegistered();
+}

@@ -28,3 +28,14 @@ final class Zend
         ));
     }
 }
+
+if (!Common::isFedoraNamespaceRegistered()) {
+    Zend::factory(array(
+        'namespaces' => array(
+            'Fedora\\Autoload\\' => __DIR__,
+            'Fedora\\' => Common::LIB_DIR.'/Fedora',
+        ),
+    ));
+
+    Common::setFedoraNamespaceRegistered();
+}

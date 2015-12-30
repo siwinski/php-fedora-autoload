@@ -14,6 +14,18 @@ final class Common
 {
     const LIB_DIR = '/usr/share/php';
 
+    private static $fedoraNamespaceRegistered = false;
+
+    public static function isFedoraNamespaceRegistered()
+    {
+        return self::$fedoraNamespaceRegistered;
+    }
+
+    public static function setFedoraNamespaceRegistered($fedoraNamespaceRegistered = true)
+    {
+        self::$fedoraNamespaceRegistered = (bool) $fedoraNamespaceRegistered;
+    }
+
     public static function prefixPsr0ClassRequire($psr0Class, $prefix = self::LIB_DIR, $once = true)
     {
         if (!class_exists($psr0Class, false)) {
